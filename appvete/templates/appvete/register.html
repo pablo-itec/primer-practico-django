@@ -1,0 +1,9 @@
+{% extends 'appvete/index.html' %}
+{% block body %}
+    <ul>
+    {% for r in registros %}
+        <li>Nombre: {{ r.nombre }} - Edad: {{ r.edad }} - Especie: {{ r.especie }} - Raza: {{ r.raza }} - Dueño: {{ r.dueños }} - Ingreso: {{ r.fecha_creacion }}</li> {% empty %}
+        <li>La lista está llegando vacía desde la base de datos.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
