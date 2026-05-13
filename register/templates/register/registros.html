@@ -1,0 +1,19 @@
+{% extends 'register/index.html' %}
+
+{% block body %}
+    <h2>Listado de Animales Registrados</h2>
+    <ul>
+    {% for r in registros %}
+        <li>
+            Nombre: {{ r.nombre }} - 
+            Edad: {{ r.edad }} - 
+            Especie: {{ r.especie }} - 
+            Dueño: {{ r.duenio }}
+        </li>
+        <a href="{% url 'editar_mascota' r.id %}" class="btn btn-warning btn-sm">Editar</a>
+        <a href="{% url 'eliminar_mascota' r.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+    {% empty %}
+        <li>No hay mascotas registradas aún.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
